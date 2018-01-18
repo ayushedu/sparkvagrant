@@ -15,17 +15,21 @@ $ mkdir vagrant_getting_started
 $ cd vagrant_getting_started
 $ vagrant init
 ```
-* Installing Box
+* Installing Vagrant Box
 ```
 $ vagrant box add hashicorp/precise64
 ```
+
 	* Edit the Vagrantfile
+
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/precise64"
 end
 ```
+
 * Starting the machine
+
 ```
 $ vagrant up
 $ vagrant ssh
