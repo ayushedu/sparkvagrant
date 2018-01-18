@@ -20,7 +20,7 @@ $ vagrant init
 $ vagrant box add hashicorp/precise64
 ```
 
-	* Edit the Vagrantfile
+Edit the Vagrantfile
 
 ```
 Vagrant.configure("2") do |config|
