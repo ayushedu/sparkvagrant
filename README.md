@@ -11,9 +11,9 @@ Below are the steps:
 Download package from (https://www.vagrantup.com/downloads.html)
 * Project Setup
 ```shell
-mkdir vagrant_getting_started
-cd vagrant_getting_started
-vagrant init
+$ mkdir vagrant_getting_started
+$ cd vagrant_getting_started
+$ vagrant init
 ```
 * Installing Vagrant Box
 ```shell
@@ -44,7 +44,7 @@ wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-secureback
 ```
 
 Add lines in /home/vagrant/.bashrc
-```shell
+```vim
 export JAVA_HOME=/home/vagrant/jdk-9.0.4
 export PATH=$PATH:/home/vagrant/jdk-9.0.4/bin
 ```
