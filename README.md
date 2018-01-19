@@ -11,9 +11,9 @@ Below are the steps:
 Download package from (https://www.vagrantup.com/downloads.html)
 * Project Setup
 ```shell
-$ mkdir vagrant_getting_started
-$ cd vagrant_getting_started
-$ vagrant init
+mkdir vagrant_getting_started
+cd vagrant_getting_started
+vagrant init
 ```
 * Installing Vagrant Box
 ```shell
