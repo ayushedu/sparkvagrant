@@ -61,7 +61,7 @@ tar -zxvf sbt-1.1.0.tgz
 
 Add sbt in path: add below line in /home/vagrant/bashrc
 ```vim
-export PATH=$PATH:/home/vagrant/jdk-9.0.4/bin:/home/vagrant/sbt/bin
+export PATH=$PATH:/home/vagrant/sbt/bin
 ```
 ## Installing Hadoop
 
