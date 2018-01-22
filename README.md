@@ -40,7 +40,8 @@ Once we have logged into the vagrant machine we can install the other components
 ## Installing Java
 To download JDK we need to accept the license term. In the below wget we are accepting the license term by setting the cookie in header.
 ```shell
-wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
+$ wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
+$ tar -zxvf jdk-9.0.4_linux-x64_bin.tar.gz
 ```
 
 Add lines in /home/vagrant/.bashrc
@@ -50,8 +51,8 @@ export PATH=$PATH:/home/vagrant/jdk-9.0.4/bin
 ```
 ## Installing Scala
 ```shell
-wget https://github.com/sbt/sbt/releases/download/v1.1.0/sbt-1.1.0.tgz
-tar -zxvf sbt-1.1.0.tgz
+$ wget https://github.com/sbt/sbt/releases/download/v1.1.0/sbt-1.1.0.tgz
+$ tar -zxvf sbt-1.1.0.tgz
 ```
 
 Add sbt in path: add below line in /home/vagrant/bashrc
@@ -60,20 +61,20 @@ export PATH=$PATH:/home/vagrant/sbt/bin
 ```
 ## Installing Hadoop
 ```shell
-wget http://www-us.apache.org/dist/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz
-tar -zxvf hadoop-3.0.0.tar.gz
+$ wget http://www-us.apache.org/dist/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz
+$ tar -zxvf hadoop-3.0.0.tar.gz
 ```
 
 ## Installing Apache Spark
 ```shell
-wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
-tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
+$ wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
+$ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
 ```
 ## Installing Apache Livy
 ```shell
-sudo apt-get install unzip
-wget http://www-eu.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip
-unzip livy-0.4.0-incubating-bin.zip
+$ sudo apt-get install unzip
+$ wget http://www-eu.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip
+$ unzip livy-0.4.0-incubating-bin.zip
 ```
 
 # Configuration
