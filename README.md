@@ -49,13 +49,8 @@ export JAVA_HOME=/home/vagrant/jdk-9.0.4
 export PATH=$PATH:/home/vagrant/jdk-9.0.4/bin
 ```
 ## Installing Scala
-Downlaod sbt
 ```shell
 wget https://github.com/sbt/sbt/releases/download/v1.1.0/sbt-1.1.0.tgz
-```
-
-untar 
-```shell
 tar -zxvf sbt-1.1.0.tgz
 ```
 
@@ -64,8 +59,24 @@ Add sbt in path: add below line in /home/vagrant/bashrc
 export PATH=$PATH:/home/vagrant/sbt/bin
 ```
 ## Installing Hadoop
+```shell
+wget http://www-us.apache.org/dist/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz
+tar -zxvf hadoop-3.0.0.tar.gz
+```
 
 ## Installing Apache Spark
+```shell
+wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
+tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
+```
 ## Installing Apache Livy
-## Installing Mysql
+```shell
+sudo apt-get install unzip
+wget http://www-eu.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip
+unzip livy-0.4.0-incubating-bin.zip
+```
 
+# Configuration
+## Hadoop
+## Spark
+## Livy
