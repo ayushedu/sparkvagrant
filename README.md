@@ -1,5 +1,5 @@
 # Installing Spark environment in Vagrant
-The goal of this post is to setup spark environment in vagrant environment, so that it doesn't corrupt of affect the base OS. 
+The goal of this post is to setup single node spark cluster in vagrant. Vagrant will prevent the the base OS from getting corrupted.
 
 Vagrant is an open-source software product for building and maintaining portable virtual software development environments,[4] e.g. for VirtualBox, Hyper-V, Docker, VMware, and AWS. More information can be found on https://www.vagrantup.com/intro/getting-started/index.html
 
@@ -60,10 +60,19 @@ Add sbt in path: add below line in /home/vagrant/bashrc
 export PATH=$PATH:/home/vagrant/sbt/bin
 ```
 ## Installing Hadoop
+1. Download and extract hadoop
 ```shell
 $ wget http://www-us.apache.org/dist/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz
 $ tar -zxvf hadoop-3.0.0.tar.gz
+$ ln -s hadoop-3.0.0 hadoop
 ```
+
+2. Modify JAVA_HOME value in hadoop/etc/hadoop/hadoop-env.sh
+```vim
+export JAVA_HOME=/home/vagrant/jdk-9.0.4
+```
+
+3. Open port 9870 in vagrnt
 
 ## Installing Apache Spark
 ```shell
@@ -77,7 +86,8 @@ $ wget http://www-eu.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-
 $ unzip livy-0.4.0-incubating-bin.zip
 ```
 
-# Configuration
-## Hadoop
-## Spark
-## Livy
+## Setup passphraseless ssh
+```shell
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ chmod 0600 ~/.ssh/authorized_keys
