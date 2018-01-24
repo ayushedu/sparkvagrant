@@ -37,27 +37,38 @@ $ vagrant ssh
 
 Once we have logged into the vagrant machine we can install the other components.
 
+## Setup passphraseless ssh
+```shell
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ chmod 0600 ~/.ssh/authorized_keys
+
 ## Installing Java
 To download JDK we need to accept the license term. In the below wget we are accepting the license term by setting the cookie in header.
 ```shell
-$ wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
-$ tar -zxvf jdk-9.0.4_linux-x64_bin.tar.gz
+$ wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gzjdk-8u161-linux-x64.tar.gz
+$ tar -zxvf jdk-8u161-linux-x64.tar.gz
 ```
 
 Add lines in /home/vagrant/.bashrc
 ```vim
-export JAVA_HOME=/home/vagrant/jdk-9.0.4
-export PATH=$PATH:/home/vagrant/jdk-9.0.4/bin
+export JAVA_HOME=/home/vagrant/jdk1.8.0_161
+export PATH=$PATH:/home/vagrant/jdk1.8.0_161/bin
 ```
 ## Installing Scala
+1. Install sbt
 ```shell
 $ wget https://github.com/sbt/sbt/releases/download/v1.1.0/sbt-1.1.0.tgz
 $ tar -zxvf sbt-1.1.0.tgz
 ```
-
-Add sbt in path: add below line in /home/vagrant/bashrc
+2. Install scala binaries
+```shell
+$ wget https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.tgz
+$ ln -s scala-2.12.4/ scala
+```
+3. Add scala and sbt in path: add below line in /home/vagrant/bashrc
 ```vim
-export PATH=$PATH:/home/vagrant/sbt/bin
+export PATH=$PATH:/home/vagrant/sbt/bin:/home/vagrant/scala/bin
 ```
 ## Installing Hadoop
 1. Download and extract hadoop
@@ -72,13 +83,18 @@ $ ln -s hadoop-3.0.0 hadoop
 export JAVA_HOME=/home/vagrant/jdk-9.0.4
 ```
 
-3. Open port 9870 in vagrnt
-
+3. Add binaries in path: add below line in /home/vagrant/bashrc
+```vim
+export PATH=$PATH:/home/vagrant/hadoop/sbin:/home/vagrant/hadoop/bin
+```
 ## Installing Apache Spark
 ```shell
 $ wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
 $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
+$ ln -s spark-2.2.1-bin-hadoop2.7 spark
 ```
+
+
 ## Installing Apache Livy
 ```shell
 $ sudo apt-get install unzip
@@ -86,8 +102,4 @@ $ wget http://www-eu.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-
 $ unzip livy-0.4.0-incubating-bin.zip
 ```
 
-## Setup passphraseless ssh
-```shell
-$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-$ chmod 0600 ~/.ssh/authorized_keys
+## Open ports in Vagrant
