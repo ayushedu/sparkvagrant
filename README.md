@@ -42,6 +42,7 @@ Once we have logged into the vagrant machine we can install the other components
 $ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 $ chmod 0600 ~/.ssh/authorized_keys
+```
 
 ## Installing Java
 To download JDK we need to accept the license term. In the below wget we are accepting the license term by setting the cookie in header.
@@ -55,6 +56,7 @@ Add lines in /home/vagrant/.bashrc
 export JAVA_HOME=/home/vagrant/jdk1.8.0_161
 export PATH=$PATH:/home/vagrant/jdk1.8.0_161/bin
 ```
+
 ## Installing Scala
 1. Install sbt
 ```shell
@@ -70,6 +72,7 @@ $ ln -s scala-2.12.4/ scala
 ```vim
 export PATH=$PATH:/home/vagrant/sbt/bin:/home/vagrant/scala/bin
 ```
+
 ## Installing Hadoop
 1. Download and extract hadoop
 ```shell
@@ -87,13 +90,13 @@ export JAVA_HOME=/home/vagrant/jdk-9.0.4
 ```vim
 export PATH=$PATH:/home/vagrant/hadoop/sbin:/home/vagrant/hadoop/bin
 ```
+
 ## Installing Apache Spark
 ```shell
 $ wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
 $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
 $ ln -s spark-2.2.1-bin-hadoop2.7 spark
 ```
-
 
 ## Installing Apache Livy
 ```shell
