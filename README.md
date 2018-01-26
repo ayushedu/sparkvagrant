@@ -99,10 +99,23 @@ $ ln -s spark-2.2.1-bin-hadoop2.7 spark
 ```
 
 ## Installing Apache Livy
+1. Download and extract Apache Livy
 ```shell
 $ sudo apt-get install unzip
 $ wget http://www-eu.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip
 $ unzip livy-0.4.0-incubating-bin.zip
+$ ln -s livy-0.4.0-incubating-bin/ livy
+```
+
+2. Export SPARK_HOME: add below line in /home/vagrant/bashrc
+```vim
+export SPARK_HOME=/home/vagrant/spark
+export HADOOP_CONF_DIR=/home/vagrant/hadoop/conf
+```
+
+3. Create log directory
+```shell
+$ mkdir /home/vagrant/livy-0.4.0-incubating-bin/logs
 ```
 
 ## Open ports in Vagrant
