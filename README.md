@@ -83,7 +83,7 @@ $ ln -s hadoop-3.0.0 hadoop
 
 2. Modify JAVA_HOME value in hadoop/etc/hadoop/hadoop-env.sh
 ```vim
-export JAVA_HOME=/home/vagrant/jdk-9.0.4
+export JAVA_HOME=/home/vagrant/jdk1.8.0_161
 ```
 
 3. Add binaries in path: add below line in /home/vagrant/bashrc
