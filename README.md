@@ -117,5 +117,9 @@ export HADOOP_CONF_DIR=/home/vagrant/hadoop/conf
 ```shell
 $ mkdir /home/vagrant/livy-0.4.0-incubating-bin/logs
 ```
-
+ 4. Install Python Requests package
+```
+$ sudo apt-get install python-pip
+$ sudo pip install -U requests -i https://pypi.python.org/simple
+```
 ## Open ports in Vagrant
