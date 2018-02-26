@@ -110,7 +110,7 @@ $ ln -s livy-0.4.0-incubating-bin/ livy
 2. Export SPARK_HOME: add below line in /home/vagrant/bashrc
 ```vim
 export SPARK_HOME=/home/vagrant/spark
-export HADOOP_CONF_DIR=/home/vagrant/hadoop/conf
+export HADOOP_CONF_DIR=/home/vagrant/hadoop/etc/hadoop/
 ```
 
 3. Create log directory
@@ -123,3 +123,7 @@ $ sudo apt-get install python-pip
 $ sudo pip install -U requests -i https://pypi.python.org/simple
 ```
 ## Open ports in Vagrant
+Add the following line in VagrantFile
+```vim
+config.vm.network "forwarded_port", guest: 8088, host: 8488
+```
